@@ -9,6 +9,12 @@ namespace Demo2.Controllers
     {
         public IActionResult Index()
         {
+            return Ok();
+        }
+
+        [Route("testException")]
+        public IActionResult Get()
+        {
             throw new NotImplementedException();
         }
     }

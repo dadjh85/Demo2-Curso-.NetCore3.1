@@ -7,8 +7,16 @@ namespace Demo2.Middlewares
 {
     public class LogExceptionMiddleware
     {
+        #region Properties
+
         private readonly RequestDelegate _next;
 
+        #endregion
+
+        /// <summary>
+        /// Constructor of middleware
+        /// </summary>
+        /// <param name="next"></param>
         public LogExceptionMiddleware(RequestDelegate next)
         {
             _next = next ?? throw new ArgumentNullException(nameof(next));
@@ -38,7 +46,7 @@ namespace Demo2.Middlewares
     public static class LogExceptionMiddlewareExtensions
     {
         public static IApplicationBuilder UseLogExceptionMiddleware(this IApplicationBuilder builder)
-            => builder.UseMiddleware<LogExceptionMiddleware>();
+            => builder.UseMiddleware<LogActivityMiddleware>();
     }
 }
 
