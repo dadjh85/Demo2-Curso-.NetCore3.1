@@ -5,7 +5,7 @@ namespace Demo2.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class HomeController : Controller
+    public class HomeController : ControllerBase
     {
         public IActionResult Index()
         {
