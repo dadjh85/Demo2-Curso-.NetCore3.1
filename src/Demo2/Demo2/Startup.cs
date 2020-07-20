@@ -1,3 +1,4 @@
+using Demo2.Infrastructure;
 using Demo2.Middlewares;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -42,6 +43,8 @@ namespace Demo2
         {
             //personal Middleware for capture the exceptions of app
             app.UseLogExceptionMiddleware();
+            app.UseLogActivityMiddleware();
+
 
             app.UseHttpsRedirection();
 

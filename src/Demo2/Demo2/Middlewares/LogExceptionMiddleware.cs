@@ -46,7 +46,7 @@ namespace Demo2.Middlewares
     public static class LogExceptionMiddlewareExtensions
     {
         public static IApplicationBuilder UseLogExceptionMiddleware(this IApplicationBuilder builder)
-            => builder.UseMiddleware<LogActivityMiddleware>();
+            => builder.UseMiddleware<LogExceptionMiddleware>();
     }
 }
 

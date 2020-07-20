@@ -33,7 +33,16 @@ namespace Demo2.Middlewares
         /// <returns></returns>
         public async Task Invoke(HttpContext context)
         {
+            var path = context.Request.Path;
             await _next(context);
+            var responseCode = context.Response.StatusCode;
+            _logger.LogInformation($"{path} – {responseCode}");
         }
+    }
+
+    public static class LogActivityMiddlewareExtensions
+    {
+        public static IApplicationBuilder UseLogActivityMiddleware(this IApplicationBuilder builder)
+           => builder.UseMiddleware<LogActivityMiddleware>();
     }
 }
